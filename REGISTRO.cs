@@ -10,9 +10,11 @@ namespace ExamenTemperaturasG
     {
         DateTime fecha;
         string codigo;
-
+        int temperatura;
         public DateTime FechaT { get => fecha; set => fecha = value; }
         public string Codigo { get => codigo; set => codigo = value; }
+
+        public int Temperatura { get => temperatura; set => temperatura = value; }
 
     }
 }

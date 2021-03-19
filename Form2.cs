@@ -54,6 +54,7 @@ namespace ExamenTemperaturasG
                     REGISTRO reg = new REGISTRO();
                     reg.FechaT = Convert.ToDateTime(reader.ReadLine());
                     reg.Codigo = reader.ReadLine();
+                    reg.Temperatura = Convert.ToInt32(reader.ReadLine());
                     RegistroT.Add(reg);
                 }
                 //Cerrar el archivo, esta linea es importante porque sino despues de correr varias veces el programa daría error de que el archivo quedó abierto muchas veces. Entonces es necesario cerrarlo despues de terminar de leerlo.
@@ -76,6 +77,7 @@ namespace ExamenTemperaturasG
                 REGISTRO temT = new REGISTRO();
                 temT.FechaT = monthCalendar1.SelectionStart;
                 temT.Codigo = cocos.Codigo;
+                temT.Temperatura = Convert.ToInt32(textBox1.Text);
                 RegistroT.Add(temT);
 
                 FileStream stream = new FileStream(@"..\..\temperaturas.txt", FileMode.OpenOrCreate, FileAccess.Write);
@@ -89,6 +91,8 @@ namespace ExamenTemperaturasG
                 {
                     writer.WriteLine(p.FechaT);
                     writer.WriteLine(p.Codigo);
+                    writer.WriteLine(p.Temperatura);
+                    
                 }
                 //Cerrar el archivo
                 writer.Close();
