@@ -96,6 +96,7 @@ namespace ExamenTemperaturasG
                 }
                 //Cerrar el archivo
                 writer.Close();
+                MessageBox.Show("Datos almacenados exitosamente");
             }
 
         }
