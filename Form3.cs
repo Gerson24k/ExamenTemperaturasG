@@ -15,6 +15,7 @@ namespace ExamenTemperaturasG
     {
         List<DEPARTAMENTO> DepartamentoR = new List<DEPARTAMENTO>();
         List<REGISTRO> RegistroT = new List<REGISTRO>();
+        int total=0;
         public Form3()
         {
             InitializeComponent();
@@ -61,11 +62,15 @@ namespace ExamenTemperaturasG
                     reg.FechaT = Convert.ToDateTime(reader.ReadLine());
                     reg.Codigo = reader.ReadLine();
                     reg.Temperatura = Convert.ToInt32(reader.ReadLine());
+                    total = total + reg.Temperatura;
                     RegistroT.Add(reg);
                 }
                 //Cerrar el archivo, esta linea es importante porque sino despues de correr varias veces el programa daría error de que el archivo quedó abierto muchas veces. Entonces es necesario cerrarlo despues de terminar de leerlo.
                 reader.Close();
             }
+            int conteo = 0;
+            conteo =total / RegistroT.Count;
+            label2.Text = conteo.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
