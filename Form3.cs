@@ -59,7 +59,7 @@ namespace ExamenTemperaturasG
                 //lo muestre en otro control por ejemplo un combobox
                 {
                     REGISTRO reg = new REGISTRO();
-                    reg.FechaT = Convert.ToDateTime(reader.ReadLine());
+                    reg.FechaT = Convert.ToDateTime(reader.ReadLine());          
                     reg.Codigo = reader.ReadLine();
                     reg.Temperatura = Convert.ToInt32(reader.ReadLine());
                     total = total + reg.Temperatura;
@@ -71,6 +71,16 @@ namespace ExamenTemperaturasG
             int conteo = 0;
             conteo =total / RegistroT.Count;
             label2.Text = conteo.ToString();
+            for(int x =0; x< RegistroT.Count; x++)
+            {
+                for (int y = 0; y < DepartamentoR.Count; y++)
+                {
+                    if (RegistroT[x].Codigo==DepartamentoR[y].Codigo)
+                    {
+                        RegistroT[x].Codigo = DepartamentoR[y].Nombre;
+                    }
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
