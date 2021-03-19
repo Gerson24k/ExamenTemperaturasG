@@ -67,5 +67,14 @@ namespace ExamenTemperaturasG
                 reader.Close();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<REGISTRO> sorted = RegistroT.OrderBy(x => x.Temperatura).ToList();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = sorted;
+            dataGridView1.Refresh();
+
+        }
     }
 }
